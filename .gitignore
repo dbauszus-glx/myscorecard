@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.env
+.DS_Store
+.sass-cache/
+.vercel
+
+env
+package-lock.json
+node_modules/*

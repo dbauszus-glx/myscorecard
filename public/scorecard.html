@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>MyScorecard</title>
+
+    <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        html, body {
+            padding: 20px;
+        }
+
+        .name-input {
+            width: 100%;            
+        }
+
+        input {
+            font-size: 40px;
+        }
+
+        .tabulator {
+            font-size: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="scorecard"></div>
+
+</body>
+
+<script>
+
+    const userTable = new Tabulator(document.getElementById("scorecard"), {
+        layout: "fitColumns",
+        selectable: false,
+        height: "100%",
+        columns: [
+            {
+                title: "Hole",
+                field: "hole",
+                headerSort: false,
+                resizable: false,
+                hozAlign:"center",
+                width: "50"
+            },
+            {
+                titleFormatter: () => '<input class="name-input"/>',
+                field: "p1",
+                headerSort: false,
+                editor: "number",
+                editorParams: {
+                    min: 0,
+                    max: 9,
+                    step: 1
+                },
+                hozAlign:"center",
+                resizable: false,
+                bottomCalc: "sum"
+            },
+            {
+                titleFormatter: () => '<input class="name-input"/>',
+                field: "p2",
+                headerSort: false,
+                editor: "number",
+                editorParams: {
+                    min: 0,
+                    max: 9,
+                    step: 1
+                },
+                hozAlign:"center",
+                resizable: false,
+                bottomCalc: "sum"
+            },
+            {
+                titleFormatter: () => '<input class="name-input"/>',
+                field: "p3",
+                headerSort: false,
+                editor: "number",
+                editorParams: {
+                    min: 0,
+                    max: 9,
+                    step: 1
+                },
+                hozAlign:"center",
+                resizable: false,
+                bottomCalc: "sum"
+            }
+        ],
+        data: [
+            {
+                hole: 1
+            },
+            {
+                hole: 2
+            },
+            {
+                hole: 3
+            },
+            {
+                hole: 4
+            },
+            {
+                hole: 5
+            },
+            {
+                hole: 6
+            },
+            {
+                hole: 7
+            },
+            {
+                hole: 8
+            },
+            {
+                hole: 9
+            }
+        ]
+    });
+
+</script>
